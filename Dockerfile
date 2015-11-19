@@ -13,6 +13,7 @@ add . /ngx_openresty
 WORKDIR /ngx_openresty
 # compile source code
 run /usr/bin/env perl configure
+run chmod +x build/install
 run make
 run make install
 
