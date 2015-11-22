@@ -11,14 +11,17 @@ from index.alauda.cn/zhengxiaochuan/centos_base:latest
 add . /ngx_openresty
 
 WORKDIR /ngx_openresty
-# compile source code
+
+# Compile source code
 run /usr/bin/env perl configure
 run chmod +x build/install
 run make
 run make install
 
-
-
+# Run nginx
+ENTRYPOINT ["/usr/local/openresty/nginx/sbin/nginx -t -c /usr/local/openresty/nginx/conf/nginx.conf"]
+# export 80 port
+expose 80
 
 
 
