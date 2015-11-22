@@ -1,10 +1,10 @@
 # VERSION 0.1
 # AUTHOR:         zhengxiaochuan <zhengxiaochuan-3@163.com>
-# DESCRIPTION:    Image with nginx
+# DESCRIPTION:    ngx_openresty
 # TO_BUILD:       docker build -rm -t ngx_openresty .
-# TO_RUN:         docker run --name some-nginx -p hostport:nginxport -v /some/contentpath:/some/nginxfilepath:ro -d nginx
+# TO_RUN:         docker run -p hostport:80 -v /export/log/:/export/log/ -v /export/data:/export/data/ -v /export/conf/:/export/conf/ -d ngx_openresty
 
-# Latest Ubuntu LTS
+# from centos
 FROM index.alauda.cn/zhengxiaochuan/centos_base:latest 
 
 # Add source code
@@ -19,7 +19,8 @@ RUN make
 RUN make install
 
 # Run nginx
-ENTRYPOINT ["/usr/local/openresty/nginx/sbin/nginx -t -c /usr/local/openresty/nginx/conf/nginx.conf"]
+ENTRYPOINT /usr/local/openresty/nginx/sbin/nginx -c /usr/local/openresty/nginx/conf/nginx.conf && /bin/bash && sleep 9999d
+
 
 # export 80 port
 EXPOSE 80
@@ -27,7 +28,3 @@ EXPOSE 80
 VOLUME ["/export/log/"]
 VOLUME ["/export/data/"]
 VOLUME ["/export/conf/"]
-
-
-
-
