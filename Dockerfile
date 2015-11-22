@@ -23,6 +23,10 @@ ENTRYPOINT ["/usr/local/openresty/nginx/sbin/nginx -t -c /usr/local/openresty/ng
 
 # export 80 port
 EXPOSE 80
+# share /export/
+VOLUME ["/export/log/"]
+VOLUME ["/export/data/"]
+VOLUME ["/export/conf/"]
 
 
 
