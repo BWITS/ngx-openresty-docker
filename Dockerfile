@@ -8,7 +8,7 @@ FROM alpine:3.2
 # Add source code
 # Compile source code
 RUN apk update && apk add perl alpine-sdk pcre-dev openssl-dev bash && \
-    git clone https://github.com/BWITS/ngx-openresty-docker.git /ngx_openresty && \
+    git clone https://github.com/BWITS/ngx-openresty-docker.git /ngx-openresty && \
     cd /ngx-openresty && \
     /usr/bin/env perl configure && \
     chmod +x build/install && \
@@ -18,6 +18,7 @@ RUN apk update && apk add perl alpine-sdk pcre-dev openssl-dev bash && \
     apk add libpcrecpp libpcre16 libpcre32 openssl libssl1.0 pcre libgcc libstdc++ && \
     rm -rf /var/cache/apk/* && \
     rm -rf /var/lib/apt/lists/* && \
+    rm -rf /ngx-openresty
 
 # export 80 port
 EXPOSE 80
