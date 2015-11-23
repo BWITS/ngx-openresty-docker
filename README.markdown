@@ -1,7 +1,13 @@
 Name
 ====
 
+[![](https://badge.imagelayers.io/bwits/ngx-openresty-docker:latest.svg)](https://imagelayers.io/?images=bwits/ngx-openresty-docker:latest 'Get your own badge on imagelayers.io')
+
+run ngx_openresty in Alpine Linux container.
+
 ngx_openresty - Turning Nginx into a full-fledged Web App Server
+
+Refer https://github.com/zhengxiaochuan-3/ngx-openresty-docker
 
 Table of Contents
 =================
@@ -101,4 +107,5 @@ NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 [Back to TOC](#table-of-contents)
+
 
